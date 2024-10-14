@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c6maouhbi82e5"]
 
-[ext_resource type="PackedScene" uid="uid://nw7t6rp5toyi" path="res://element.tscn" id="1_xscu4"]
+[ext_resource type="PackedScene" uid="uid://nw7t6rp5toyi" path="res://Scenes/element.tscn" id="1_xscu4"]
 
 [node name="CardHand" type="Node2D"]
 metadata/shown = false
