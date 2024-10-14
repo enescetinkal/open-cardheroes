@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp60lf6rto6lh"]
+
+[ext_resource type="PackedScene" uid="uid://nw7t6rp5toyi" path="res://element.tscn" id="1_ib2em"]
+[ext_resource type="Texture2D" uid="uid://cjrawf6c78iye" path="res://pixel.png" id="2_svmye"]
+
+[node name="FieldLane" type="Node2D"]
+metadata/lane_type = ""
+metadata/lane_order = 0
+
+[node name="LaneBorderFirst" type="Sprite2D" parent="."]
+position = Vector2(-11, -21)
+scale = Vector2(21, 1)
+texture = ExtResource("2_svmye")
+centered = false
+
+[node name="LaneBackgroundLeft" type="Sprite2D" parent="LaneBorderFirst"]
+scale = Vector2(0.054, 42)
+texture = ExtResource("2_svmye")
+centered = false
+
+[node name="LaneBackgroundRight" type="Sprite2D" parent="LaneBorderFirst"]
+position = Vector2(1, 0)
+scale = Vector2(0.054, 42)
+texture = ExtResource("2_svmye")
+centered = false
+
+[node name="LaneBorderLastLeft" type="Sprite2D" parent="LaneBorderFirst"]
+position = Vector2(0.0328571, 41.25)
+rotation = 1.52321
+scale = Vector2(4.95536, 0.707908)
+skew = -1.47563
+texture = ExtResource("2_svmye")
+centered = false
+
+[node name="LaneBorderLastRight" type="Sprite2D" parent="LaneBorderFirst"]
+position = Vector2(1.05476, 42.03)
+rotation = 1.61838
+scale = Vector2(4.95536, 0.707908)
+skew = 1.47563
+texture = ExtResource("2_svmye")
+centered = false
+
+[node name="LaneRoot" type="Node2D" parent="."]
+
+[node name="LaneAudio" type="AudioStreamPlayer2D" parent="LaneRoot"]
+position = Vector2(1.04904e-05, 0)
+scale = Vector2(0.999999, 1)
+
+[node name="LaneUnit" parent="LaneRoot" instance=ExtResource("1_ib2em")]
+position = Vector2(1.04904e-05, -10)
+scale = Vector2(0.999999, 1)
+
+[node name="LaneUnitPlaceholder" parent="LaneRoot" instance=ExtResource("1_ib2em")]
+position = Vector2(1.04904e-05, -10)
+scale = Vector2(0.999999, 1)
+
+[node name="SupportUnit" parent="LaneRoot" instance=ExtResource("1_ib2em")]
+position = Vector2(1.04904e-05, 10)
+scale = Vector2(0.999999, 1)
+
+[node name="SupportUnitPlaceholder" parent="LaneRoot" instance=ExtResource("1_ib2em")]
+position = Vector2(1.04904e-05, 10)
+scale = Vector2(0.999999, 1)
