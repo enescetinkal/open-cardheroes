@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://nw7t6rp5toyi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n4uej"]
+
+[node name="Element" type="Node2D"]
+
+[node name="ElementSprite" type="AnimatedSprite2D" parent="."]
+
+[node name="ElementBounds" type="Area2D" parent="."]
+
+[node name="ElementBoundsShape" type="CollisionShape2D" parent="ElementBounds"]
+shape = SubResource("RectangleShape2D_n4uej")
+debug_color = Color(1.50409e-08, 0.121083, 0.147966, 0.42)
+
+[node name="ElementAudio" type="AudioStreamPlayer2D" parent="."]
+
+[node name="ElementPlaceholder" type="Sprite2D" parent="."]

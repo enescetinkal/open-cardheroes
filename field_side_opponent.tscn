@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://ta07ccryvchr"]
+
+[ext_resource type="PackedScene" uid="uid://bf4y84bf0ge1s" path="res://field_lane_set.tscn" id="1_y8dt3"]
+[ext_resource type="PackedScene" uid="uid://nw7t6rp5toyi" path="res://element.tscn" id="2_5sgf3"]
+[ext_resource type="PackedScene" uid="uid://c6maouhbi82e5" path="res://card_hand.tscn" id="3_c5tpy"]
+
+[node name="FieldSideOpponent" type="Node2D"]
+
+[node name="FieldLaneSet" parent="." instance=ExtResource("1_y8dt3")]
+position = Vector2(0, 29)
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("2_5sgf3")]
+position = Vector2(7.62939e-06, -7.99998)
+scale = Vector2(1.25, 1.25)
+
+[node name="Element" parent="." instance=ExtResource("2_5sgf3")]
+position = Vector2(-49, 1)
+scale = Vector2(0.5, 0.5)
+
+[node name="Element2" parent="." instance=ExtResource("2_5sgf3")]
+position = Vector2(-37, 1)
+scale = Vector2(0.5, 0.5)
+
+[node name="CardHand" parent="." instance=ExtResource("3_c5tpy")]
+position = Vector2(0, -37)
+scale = Vector2(0.75, 0.75)

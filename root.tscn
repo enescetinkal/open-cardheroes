@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://biwmxl5fycaxl"]
+
+[ext_resource type="PackedScene" uid="uid://bb0dlcsxqde1e" path="res://field_side_player.tscn" id="1_4cgbu"]
+[ext_resource type="Texture2D" uid="uid://14cdfkkr64qp" path="res://arena.png" id="1_s2pgw"]
+[ext_resource type="PackedScene" uid="uid://ta07ccryvchr" path="res://field_side_opponent.tscn" id="2_dlak3"]
+
+[node name="Root" type="Node"]
+
+[node name="Menu" type="Node2D" parent="."]
+
+[node name="MenuBackdrop" type="Sprite2D" parent="Menu"]
+
+[node name="MenuBackgroundAudio" type="AudioStreamPlayer" parent="Menu"]
+
+[node name="PlayingField" type="Node2D" parent="."]
+
+[node name="Backdrop" type="Sprite2D" parent="PlayingField"]
+texture = ExtResource("1_s2pgw")
+
+[node name="FieldSidePlayer" parent="PlayingField" instance=ExtResource("1_4cgbu")]
+position = Vector2(5, 391)
+scale = Vector2(6, 6)
+
+[node name="FieldSideOpponent" parent="PlayingField" instance=ExtResource("2_dlak3")]
+position = Vector2(10, -409)
+scale = Vector2(6, 6)

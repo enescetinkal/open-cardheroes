@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://bb0dlcsxqde1e"]
+
+[ext_resource type="PackedScene" uid="uid://bf4y84bf0ge1s" path="res://field_lane_set.tscn" id="1_mtson"]
+[ext_resource type="PackedScene" uid="uid://nw7t6rp5toyi" path="res://element.tscn" id="2_3rpf1"]
+[ext_resource type="PackedScene" uid="uid://c6maouhbi82e5" path="res://card_hand.tscn" id="3_vcmnx"]
+
+[node name="FieldSidePlayer" type="Node2D"]
+
+[node name="FieldLaneSet" parent="." instance=ExtResource("1_mtson")]
+position = Vector2(0, -25)
+rotation = -3.14159
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("2_3rpf1")]
+position = Vector2(0, 14)
+scale = Vector2(1.25, 1.25)
+
+[node name="Element" parent="." instance=ExtResource("2_3rpf1")]
+position = Vector2(-48, 3)
+scale = Vector2(0.5, 0.5)
+
+[node name="Element2" parent="." instance=ExtResource("2_3rpf1")]
+position = Vector2(-31, 3)
+scale = Vector2(0.5, 0.5)
+
+[node name="Element3" parent="." instance=ExtResource("2_3rpf1")]
+position = Vector2(34, 4)
+scale = Vector2(0.75, 0.75)
+
+[node name="CardHand" parent="." instance=ExtResource("3_vcmnx")]
+position = Vector2(0, 44)
+scale = Vector2(0.75, 0.75)

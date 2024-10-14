@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6maouhbi82e5"]
+
+[ext_resource type="PackedScene" uid="uid://nw7t6rp5toyi" path="res://element.tscn" id="1_xscu4"]
+
+[node name="CardHand" type="Node2D"]
+metadata/shown = false
+
+[node name="Element" parent="." instance=ExtResource("1_xscu4")]
+scale = Vector2(1, 2)
+
+[node name="Element2" parent="." instance=ExtResource("1_xscu4")]
+position = Vector2(23, 0)
+scale = Vector2(1, 2)
+
+[node name="Element3" parent="." instance=ExtResource("1_xscu4")]
+position = Vector2(-23, 0)
+scale = Vector2(1, 2)
