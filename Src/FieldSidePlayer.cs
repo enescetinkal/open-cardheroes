@@ -33,20 +33,22 @@ public partial class FieldSidePlayer : Node2D
 		if (activeCardEvent != null)
 		{
 			var mousePosition = GetViewport().GetMousePosition();
-			var cardPosition = activeCardEvent.Value.card.GlobalPosition;
+			var cardPosition = new Vector2(activeCardEvent.Value.card.GlobalPosition.X, activeCardEvent.Value.card.GlobalPosition.Y);
 			
 			originalCardPosition = originalCardPosition ?? cardPosition;
-			cardMoveTimeIncrement += (float)delta * 0.4f;
+			cardMoveTimeIncrement += (float)delta * 0.6f;
 			
-			//Debug.WriteLine("moving card...");
+			Debug.WriteLine("moving card: " + cardPosition);
 			if (((cardPosition.X - mousePosition.X) > 10 || (cardPosition.Y - mousePosition.Y) > 10) && !mouseWasCentered)
 			{
+				//Debug.WriteLine("moving card, setting position: " + cardPosition);
 				activeCardEvent?.card.SetGlobalPosition(cardPosition.Lerp(mousePosition, cardMoveTimeIncrement));
 			}
 			else
 			{
 				mouseWasCentered = true;
 				activeCardEvent?.card.SetGlobalPosition(mousePosition);
+				cardMoveTimeIncrement = 0;
 			}
 				
 			activeCardEvent.Value.card.ZIndex = 1;
