@@ -54,3 +54,26 @@ public partial class Root : Node
 		}
 	}
 }
+
+public static class Extensions
+{
+	public static bool IsInArea(this Vector2 thisCoord, Rect2? area)
+	{
+		if (area == null)
+		{
+			//Debug.WriteLine("Can't check object in area.  Area is null.");
+			return false;
+		}
+		
+		//Debug.WriteLine($"Check if: {thisCoord} is in: {area}, {new Vector2(area.Value.Position.X - (area.Value.Size.X / 2), area.Value.Position.Y - (area.Value.Size.Y / 2))}, {new Vector2(area.Value.Position.X + (area.Value.Size.X / 2), area.Value.Position.Y + (area.Value.Size.Y / 2))}");
+		var isInside = (thisCoord.X >= (area?.Position.X - (area?.Size.X / 2)) && thisCoord.X <= (area?.Position.X + (area?.Size.X / 2 )));
+		
+		//Debug.WriteLine("Object is inside x: " + isInside);
+		if (!isInside) return false;
+		
+		isInside = (thisCoord.Y >= (area?.Position.Y - (area?.Size.Y / 2 )) && thisCoord.Y <= (area?.Position.Y + (area?.Size.Y /  2)));
+		
+		//Debug.WriteLine("Object is inside y: " + isInside);
+		return isInside;
+	}
+}

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Src/CardElement.cs" id="1_dfi0s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yuyo6"]
-size = Vector2(20, 38)
+size = Vector2(33, 19)
 
 [sub_resource type="Gradient" id="Gradient_ptqkn"]
 
@@ -23,7 +23,7 @@ z_index = -1
 
 [node name="placeholder" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(-10.05, -19.05)
-scale = Vector2(0.0783203, 38.05)
+position = Vector2(-16.5, -9.5)
+scale = Vector2(0.129102, 19.05)
 texture = SubResource("GradientTexture1D_13321")
 centered = false

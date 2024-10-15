@@ -29,6 +29,7 @@ position = Vector2(34, 4)
 scale = Vector2(0.75, 0.75)
 
 [node name="CardHand" parent="." instance=ExtResource("3_vcmnx")]
-position = Vector2(0, 48)
+z_index = 1
+position = Vector2(0, 37)
 scale = Vector2(0.75, 0.75)
 CardInputEnabled = true

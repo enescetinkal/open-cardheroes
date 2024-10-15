@@ -22,6 +22,6 @@ position = Vector2(-37, 1)
 scale = Vector2(0.5, 0.5)
 
 [node name="CardHand" parent="." instance=ExtResource("3_c5tpy")]
-position = Vector2(1.19209e-07, -43)
+position = Vector2(5.52092e-12, -31)
 rotation = 3.14159
 scale = Vector2(0.75, 0.75)
