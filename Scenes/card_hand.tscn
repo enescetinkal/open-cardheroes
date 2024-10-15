@@ -1,17 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://c6maouhbi82e5"]
+[gd_scene load_steps=3 format=3 uid="uid://c6maouhbi82e5"]
 
-[ext_resource type="PackedScene" uid="uid://nw7t6rp5toyi" path="res://Scenes/element.tscn" id="1_xscu4"]
+[ext_resource type="Script" path="res://Src/CardHand.cs" id="1_ldx16"]
+[ext_resource type="PackedScene" uid="uid://ujj1kj6wv7km" path="res://Scenes/card.tscn" id="1_r7uip"]
 
 [node name="CardHand" type="Node2D"]
+script = ExtResource("1_ldx16")
 metadata/shown = false
 
-[node name="Element" parent="." instance=ExtResource("1_xscu4")]
-scale = Vector2(1, 2)
+[node name="DebugCards" type="Node2D" parent="."]
 
-[node name="Element2" parent="." instance=ExtResource("1_xscu4")]
-position = Vector2(23, 0)
-scale = Vector2(1, 2)
+[node name="Card0" parent="DebugCards" instance=ExtResource("1_r7uip")]
+position = Vector2(11, -8)
 
-[node name="Element3" parent="." instance=ExtResource("1_xscu4")]
-position = Vector2(-23, 0)
-scale = Vector2(1, 2)
+[node name="Card1" parent="DebugCards" instance=ExtResource("1_r7uip")]
+position = Vector2(-1, 32)
+
+[node name="Card2" parent="DebugCards" instance=ExtResource("1_r7uip")]
+position = Vector2(-12, -8)

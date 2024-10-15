@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://nw7t6rp5toyi"]
+[gd_scene load_steps=3 format=3 uid="uid://nw7t6rp5toyi"]
+
+[ext_resource type="Script" path="res://Src/ElementArea.cs" id="1_wvmig"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n4uej"]
 
@@ -7,6 +9,7 @@
 [node name="ElementSprite" type="AnimatedSprite2D" parent="."]
 
 [node name="ElementBounds" type="Area2D" parent="."]
+script = ExtResource("1_wvmig")
 
 [node name="ElementBoundsShape" type="CollisionShape2D" parent="ElementBounds"]
 shape = SubResource("RectangleShape2D_n4uej")
@@ -15,3 +18,6 @@ debug_color = Color(1.50409e-08, 0.121083, 0.147966, 0.42)
 [node name="ElementAudio" type="AudioStreamPlayer2D" parent="."]
 
 [node name="ElementPlaceholder" type="Sprite2D" parent="."]
+
+[connection signal="area_entered" from="ElementBounds" to="ElementBounds" method="_on_area_entered"]
+[connection signal="area_exited" from="ElementBounds" to="ElementBounds" method="_on_area_exited"]

@@ -11,8 +11,16 @@ config_version=5
 [application]
 
 config/name="OpenHeroCards"
-config/features=PackedStringArray("4.3", "Mobile")
-config/icon="res://icon.svg"
+run/main_scene="res://Scenes/root.tscn"
+config/features=PackedStringArray("4.3", "C#", "Mobile")
+config/icon="res://Resources/icon.svg"
+
+[display]
+
+window/size/viewport_width=648
+window/size/viewport_height=1152
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [dotnet]
 

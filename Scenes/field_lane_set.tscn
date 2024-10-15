@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bf4y84bf0ge1s"]
 
-[ext_resource type="PackedScene" uid="uid://cp60lf6rto6lh" path="res://field_lane.tscn" id="1_eocbl"]
+[ext_resource type="PackedScene" uid="uid://cp60lf6rto6lh" path="res://Scenes/field_lane.tscn" id="1_eocbl"]
 
 [node name="FieldLaneSet" type="Node2D"]
 
