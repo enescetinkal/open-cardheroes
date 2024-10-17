@@ -1,0 +1,17 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://xvswl3k0l8m4"]
+
+[ext_resource type="Texture2D" uid="uid://46le2iqkt1l6" path="res://Resources/LaneBox.png" id="1_vilcp"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vilcp")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]

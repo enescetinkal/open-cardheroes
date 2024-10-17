@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cp60lf6rto6lh"]
+[gd_scene load_steps=5 format=3 uid="uid://cp60lf6rto6lh"]
 
 [ext_resource type="Script" path="res://Src/FieldLane.cs" id="1_0uqpr"]
-[ext_resource type="PackedScene" uid="uid://nw7t6rp5toyi" path="res://Scenes/element.tscn" id="1_ib2em"]
 [ext_resource type="Texture2D" uid="uid://cjrawf6c78iye" path="res://Resources/pixel.png" id="2_svmye"]
+[ext_resource type="PackedScene" uid="uid://cjav4ns662x4y" path="res://Scenes/unit.tscn" id="3_a256o"]
+[ext_resource type="SpriteFrames" uid="uid://xvswl3k0l8m4" path="res://Resources/lane.tres" id="4_jscm6"]
 
 [node name="FieldLane" type="Node2D"]
 script = ExtResource("1_0uqpr")
@@ -48,18 +49,12 @@ centered = false
 position = Vector2(1.04904e-05, 0)
 scale = Vector2(0.999999, 1)
 
-[node name="LaneUnit" parent="LaneRoot" instance=ExtResource("1_ib2em")]
-position = Vector2(1.04904e-05, -10)
-scale = Vector2(0.999999, 1)
+[node name="LaneUnit" parent="LaneRoot" instance=ExtResource("3_a256o")]
+position = Vector2(0, -10)
 
-[node name="LaneUnitPlaceholder" parent="LaneRoot" instance=ExtResource("1_ib2em")]
-position = Vector2(1.04904e-05, -10)
-scale = Vector2(0.999999, 1)
+[node name="SupportUnit" parent="LaneRoot" instance=ExtResource("3_a256o")]
+position = Vector2(0, 10)
 
-[node name="SupportUnit" parent="LaneRoot" instance=ExtResource("1_ib2em")]
-position = Vector2(1.04904e-05, 10)
-scale = Vector2(0.999999, 1)
-
-[node name="SupportUnitPlaceholder" parent="LaneRoot" instance=ExtResource("1_ib2em")]
-position = Vector2(1.04904e-05, 10)
-scale = Vector2(0.999999, 1)
+[node name="LanePlaceholder" type="AnimatedSprite2D" parent="LaneRoot"]
+visible = false
+sprite_frames = ExtResource("4_jscm6")

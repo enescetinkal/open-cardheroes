@@ -1,0 +1,17 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://dmjp18wn2ivis"]
+
+[ext_resource type="Texture2D" uid="uid://j75ab4s2f2wn" path="res://Resources/UnitBox.png" id="1_74lxa"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_74lxa")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]

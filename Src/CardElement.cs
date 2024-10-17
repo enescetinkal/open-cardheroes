@@ -2,25 +2,55 @@ using Godot;
 using System;
 using System.Diagnostics;
 
-public partial class CardElement : Node2D
+public partial class CardElement : Control
 {
 	[Export]
 	public bool CardInputEnabled { get; set; } = false;
 	
 	public delegate void CardPickedHandler(CardElement card, Vector2 offset);
-	public delegate void CardDroppedHandler(CardElement card);
+	public delegate void CardMouseUpHandler(CardElement card);
 	public event CardPickedHandler CardPicked;
-	public event CardDroppedHandler CardDropped;
+	public event CardMouseUpHandler CardMouseUp;
+	public CollisionShape2D CollisionArea { get; set; }
 	
 	/// Where the card is in the player's hand
 	private short initialPosition = -1;
-	private CollisionShape2D shape;
+	private static Vector2? _size;
+	private PlayingCard _cardStats;
+	private FieldSide playerField = null;
+	private FieldSide opponentField = null;
+	private FieldSide fieldSide = null;
+	private CardHand cardHand = null;
+	
+	public PlayingCard CardStats 
+	{ 
+		get => _cardStats; 
+		set
+		{
+			_cardStats = value;
+			//TODO: set card texture based on stats object
+		}
+	}
+	
+	public new Vector2 Size
+	{
+		get
+		{
+			if (_size == null) GetCardWorldRect();
+			
+			return _size.Value;
+		}
+		set
+		{
+			_size = value;
+		}
+	}
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		//Debug.WriteLine("card ready");
-		shape = (CollisionShape2D)FindChild("CollisionShape2D", owned: false);
+		CollisionArea = GetNode<CollisionShape2D>("Area2D/CollisionShape2D");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -42,15 +72,15 @@ public partial class CardElement : Node2D
 					eventAction is InputEventMouseButton tmpMouseEvent 
 					&& tmpMouseEvent.ButtonIndex == MouseButton.Left
 					&& (
-						(tmpMouseEvent.Pressed && CardPicked != null && tmpMouseEvent.Position.IsInArea(cardRect))
-						|| (!tmpMouseEvent.Pressed && CardDropped != null)
+						(tmpMouseEvent.Pressed && CardPicked != null && tmpMouseEvent.Position.IsInCenteredArea(cardRect))
+						|| (!tmpMouseEvent.Pressed && CardMouseUp != null)
 					)
 				) 
 				|| (
 					eventAction is InputEventScreenTouch tmpTouchEvent
 					&& (
-						(tmpTouchEvent.Pressed && CardPicked != null && tmpTouchEvent.Position.IsInArea(cardRect))
-						|| (!tmpTouchEvent.Pressed && CardDropped != null)
+						(tmpTouchEvent.Pressed && CardPicked != null && tmpTouchEvent.Position.IsInCenteredArea(cardRect))
+						|| (!tmpTouchEvent.Pressed && CardMouseUp != null)
 					)
 				)
 			)
@@ -70,24 +100,27 @@ public partial class CardElement : Node2D
 				}
 				else
 				{
-					CardDropped(this);
+					CardMouseUp(this);
 				}
 			}
 		}
 	}
 	
-	private Rect2? GetCardWorldRect()
+	public Rect2? GetCardWorldRect()
 	{
-		var shapeRectOriginal = shape?.Shape.GetRect();
+		if (playerField == null) playerField = this.FindParent<FieldSidePlayer>("FieldSidePlayer");
+		if (opponentField == null) opponentField = this.FindParent<FieldSideOpponent>("FieldSideOpponent");
+		if (fieldSide == null) fieldSide = playerField ?? opponentField;
+		if (cardHand == null) cardHand = fieldSide.GetNode<CardHand>("CardHand");
+
+		var retVal = NodeHelper.GetRectWithScale(GlobalPosition, CollisionArea, this.Scale * fieldSide.Scale * cardHand.Transform.Scale);
 		
-		if (shapeRectOriginal != null)
+		if (_size == null && retVal != null)
 		{
-			var playerFieldScale = ((Node2D)FindParent("FieldSidePlayer")).Transform.Scale;
-			var backdropScale = ((Node2D)FindParent("Backdrop")).Transform.Scale;
-			var shapeSize = new Vector2(shapeRectOriginal.Value.Size.X * playerFieldScale.X * backdropScale.X, shapeRectOriginal.Value.Size.Y * playerFieldScale.Y * backdropScale.Y);
-			
-			return new Rect2(GlobalPosition, shapeSize);
+			//Debug.WriteLine("card size: " + retVal.Value.Size);
+			_size = retVal.Value.Size;
 		}
-		else return null;
+		
+		return retVal;
 	}
 }

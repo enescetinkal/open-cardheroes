@@ -1,35 +1,65 @@
-[gd_scene load_steps=5 format=3 uid="uid://bb0dlcsxqde1e"]
+[gd_scene load_steps=8 format=3 uid="uid://bb0dlcsxqde1e"]
 
 [ext_resource type="Script" path="res://Src/FieldSidePlayer.cs" id="1_jrk0p"]
 [ext_resource type="PackedScene" uid="uid://bf4y84bf0ge1s" path="res://Scenes/field_lane_set.tscn" id="1_mtson"]
 [ext_resource type="PackedScene" uid="uid://nw7t6rp5toyi" path="res://Scenes/element.tscn" id="2_3rpf1"]
 [ext_resource type="PackedScene" uid="uid://c6maouhbi82e5" path="res://Scenes/card_hand.tscn" id="3_vcmnx"]
 
-[node name="FieldSidePlayer" type="Node2D"]
+[sub_resource type="Curve2D" id="Curve2D_hc6ku"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -388, 83, 0, 0, 0, 0, -218, 6, 0, 0, 0, 0, -172, -45, 0, 0, 0, 0, -99, -42, 0, 0, 0, 0, -49, -30, 0, 0, 0, 0, 6, 34)
+}
+point_count = 6
+
+[sub_resource type="Gradient" id="Gradient_evnrv"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_odlkj"]
+gradient = SubResource("Gradient_evnrv")
+
+[node name="FieldSidePlayer" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_jrk0p")
 
 [node name="FieldLaneSet" parent="." instance=ExtResource("1_mtson")]
-position = Vector2(0, -25)
+position = Vector2(7.27596e-12, -43)
 rotation = -3.14159
+scale = Vector2(1.85, 1.85)
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("2_3rpf1")]
 position = Vector2(0, 14)
 scale = Vector2(1.25, 1.25)
 
 [node name="Element" parent="." instance=ExtResource("2_3rpf1")]
-position = Vector2(-48, 3)
+position = Vector2(-90, 4)
 scale = Vector2(0.5, 0.5)
 
 [node name="Element2" parent="." instance=ExtResource("2_3rpf1")]
-position = Vector2(-31, 3)
+position = Vector2(-66, 4)
 scale = Vector2(0.5, 0.5)
 
-[node name="Element3" parent="." instance=ExtResource("2_3rpf1")]
-position = Vector2(34, 4)
+[node name="TurnAdvancer" parent="." instance=ExtResource("2_3rpf1")]
+position = Vector2(60, 6)
 scale = Vector2(0.75, 0.75)
 
 [node name="CardHand" parent="." instance=ExtResource("3_vcmnx")]
 z_index = 1
-position = Vector2(0, 37)
-scale = Vector2(0.75, 0.75)
+position = Vector2(0, 48)
+scale = Vector2(0.4, 0.4)
 CardInputEnabled = true
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_hc6ku")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(-388, 83)
+rotation = -0.425297
+rotates = false
+loop = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D"]
+visible = false
+position = Vector2(0.41259, -0.910917)
+rotation = 0.436332
+scale = Vector2(0.214835, 46.1185)
+texture = SubResource("GradientTexture1D_odlkj")

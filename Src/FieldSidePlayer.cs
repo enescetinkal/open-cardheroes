@@ -3,26 +3,41 @@ using System;
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Linq;
 
-public partial class FieldSidePlayer : Node2D
+public partial class FieldSidePlayer : FieldSide
 {
 	private (CardElement card, Vector2 offset)? activeCardEvent = null;
 	private Vector2? originalCardPosition = null;
 	private float cardMoveTimeIncrement = 0;
 	private bool mouseWasCentered = false;
-	private Task nextMove = null;
 	private CancellationTokenSource cancelTokenSrc = null;
+	private List<Unit> laneUnits = new List<Unit>();
+	private List<Unit> supportUnits = new List<Unit>();
+	private FieldLane[] lanes;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		var cards = FindChildren("Card?", owned: false);
-		if (cards.Count > 0)
+		base._Ready();
+		
+		var cards = this.FindChildren<CardElement>("Card?", owned: false);
+		
+		lanes = this.FindChildren<FieldLane>("FieldLane?", owned: false);
+		
+		Parallel.ForEach(lanes, lane =>
+		{
+			laneUnits.Add(lane.LaneUnit);
+			supportUnits.Add(lane.SupportUnit);
+		});
+		
+		if (cards.Length > 0)
 		{
 			foreach (CardElement card in cards)
 			{
 				card.CardPicked += _on_Card_picked;
-				card.CardDropped += _on_Card_dropped;
+				card.CardMouseUp += _on_Card_mouse_up;
 			}
 		}
 	}
@@ -30,30 +45,19 @@ public partial class FieldSidePlayer : Node2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		if (activeCardEvent != null)
-		{
-			var mousePosition = GetViewport().GetMousePosition();
-			var cardPosition = new Vector2(activeCardEvent.Value.card.GlobalPosition.X, activeCardEvent.Value.card.GlobalPosition.Y);
-			
-			originalCardPosition = originalCardPosition ?? cardPosition;
-			cardMoveTimeIncrement += (float)delta * 0.6f;
-			
-			Debug.WriteLine("moving card: " + cardPosition);
-			if (((cardPosition.X - mousePosition.X) > 10 || (cardPosition.Y - mousePosition.Y) > 10) && !mouseWasCentered)
-			{
-				//Debug.WriteLine("moving card, setting position: " + cardPosition);
-				activeCardEvent?.card.SetGlobalPosition(cardPosition.Lerp(mousePosition, cardMoveTimeIncrement));
-			}
-			else
-			{
-				mouseWasCentered = true;
-				activeCardEvent?.card.SetGlobalPosition(mousePosition);
-				cardMoveTimeIncrement = 0;
-			}
-				
-			activeCardEvent.Value.card.ZIndex = 1;
-			// TODO: animate card movement
-		}
+		base._Process(delta);
+		
+		HandleCardMovement((float)delta);
+	}
+	
+	public override void Activate()
+	{
+		base.Activate();
+	}
+	
+	protected override void Deactivate()
+	{
+		throw new NotImplementedException();
 	}
 	
 	void _on_Card_picked(CardElement card, Vector2 offset)
@@ -81,7 +85,7 @@ public partial class FieldSidePlayer : Node2D
 		}
 	}
 	
-	void _on_Card_dropped(CardElement card)
+	void _on_Card_mouse_up(CardElement card)
 	{
 		//Debug.WriteLine("Card was dropped...");
 		//Debug.WriteLine($"Card dropped check: {card.GlobalPosition}, active: {activeCardEvent?.card.GlobalPosition}");
@@ -92,8 +96,49 @@ public partial class FieldSidePlayer : Node2D
 			activeCardEvent = null;
 			//Debug.WriteLine("Card dropped: " + originalCardPosition.Value);
 			card.SetGlobalPosition(originalCardPosition.Value);
-			originalCardPosition = null;
 			mouseWasCentered = false;
+			
+			var laneUnitSlot = laneUnits.FirstOrDefault(u => originalCardPosition.Value.IsInCenteredArea(u.GetWorldRect()));
+			var supportUnitSlot = supportUnits.FirstOrDefault(u => originalCardPosition.Value.IsInCenteredArea(u.GetWorldRect()));
+			
+			if (!card.CardStats.IsSupportUnit && laneUnitSlot != null) ;//TODO: add unit
+			else if (card.CardStats.IsSupportUnit && supportUnitSlot != null) ;//TODO: add unit
+			//else if () TODO: check if is in lane and is lane action card
+			
+			originalCardPosition = null;
+			
+		}
+	}
+	
+	private void HandleCardMovement(float delta)
+	{		
+		if (activeCardEvent != null)
+		{
+			var activeCard = activeCardEvent.Value.card;
+			var mousePosition = GetViewport().GetMousePosition();
+			var mouseOffset = new Vector2(mousePosition.X - (activeCard.Size.X / 2), mousePosition.Y - (activeCard.Size.Y / 2));
+			var cardPosition = new Vector2(activeCard.GlobalPosition.X, activeCard.GlobalPosition.Y);
+			
+			originalCardPosition = originalCardPosition ?? cardPosition;
+			cardMoveTimeIncrement += delta * 0.6f;
+			
+			//TODO: toggle highlight for target areas
+			
+			//Debug.WriteLine($"moving card: {cardPosition}, mouse pos: {mousePosition}, mouse off: {mouseOffset}");
+			if (((cardPosition.X - mouseOffset.X) > 10 || (cardPosition.Y - mouseOffset.Y) > 10) && !mouseWasCentered)
+			{
+				//Debug.WriteLine("moving card, setting position: " + cardPosition);
+				activeCard.SetGlobalPosition(cardPosition.Lerp(mouseOffset, cardMoveTimeIncrement));
+			}
+			else
+			{
+				mouseWasCentered = true;
+				activeCard.SetGlobalPosition(mouseOffset);
+				cardMoveTimeIncrement = 0;
+			}
+			
+			activeCard.ZIndex = 1;
+			// TODO: animate card movement
 		}
 	}
 }

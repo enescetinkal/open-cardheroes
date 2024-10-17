@@ -1,27 +1,50 @@
-[gd_scene load_steps=4 format=3 uid="uid://ta07ccryvchr"]
+[gd_scene load_steps=6 format=3 uid="uid://ta07ccryvchr"]
 
+[ext_resource type="Script" path="res://Src/FieldSideOpponent.cs" id="1_2ik8l"]
 [ext_resource type="PackedScene" uid="uid://bf4y84bf0ge1s" path="res://Scenes/field_lane_set.tscn" id="1_y8dt3"]
 [ext_resource type="PackedScene" uid="uid://nw7t6rp5toyi" path="res://Scenes/element.tscn" id="2_5sgf3"]
 [ext_resource type="PackedScene" uid="uid://c6maouhbi82e5" path="res://Scenes/card_hand.tscn" id="3_c5tpy"]
 
-[node name="FieldSideOpponent" type="Node2D"]
+[sub_resource type="Curve2D" id="Curve2D_73lrw"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -388, 83, 0, 0, 0, 0, -218, 6, 0, 0, 0, 0, -172, -45, 0, 0, 0, 0, -99, -42, 0, 0, 0, 0, -49, -30, 0, 0, 0, 0, 6, 34)
+}
+point_count = 6
+
+[node name="FieldSideOpponent" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_2ik8l")
 
 [node name="FieldLaneSet" parent="." instance=ExtResource("1_y8dt3")]
-position = Vector2(0, 29)
+position = Vector2(-5.96046e-08, 62)
+scale = Vector2(1.85, 1.85)
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("2_5sgf3")]
-position = Vector2(7.62939e-06, -7.99998)
+position = Vector2(1, 6)
 scale = Vector2(1.25, 1.25)
 
 [node name="Element" parent="." instance=ExtResource("2_5sgf3")]
-position = Vector2(-49, 1)
+position = Vector2(-90, 7)
 scale = Vector2(0.5, 0.5)
 
 [node name="Element2" parent="." instance=ExtResource("2_5sgf3")]
-position = Vector2(-37, 1)
+position = Vector2(-63, 7)
 scale = Vector2(0.5, 0.5)
 
 [node name="CardHand" parent="." instance=ExtResource("3_c5tpy")]
-position = Vector2(5.52092e-12, -31)
+z_index = 1
+position = Vector2(-5.29354e-12, -31)
 rotation = 3.14159
-scale = Vector2(0.75, 0.75)
+scale = Vector2(0.4, 0.4)
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-1, 24)
+scale = Vector2(1, -1)
+curve = SubResource("Curve2D_73lrw")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(-388, 83)
+rotation = -0.425297
+rotates = false
+loop = false

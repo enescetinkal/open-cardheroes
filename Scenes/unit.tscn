@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjav4ns662x4y"]
+
+[ext_resource type="Script" path="res://Src/Unit.cs" id="1_cfeyr"]
+[ext_resource type="PackedScene" uid="uid://nw7t6rp5toyi" path="res://Scenes/element.tscn" id="2_ar167"]
+[ext_resource type="SpriteFrames" uid="uid://dmjp18wn2ivis" path="res://Resources/unit.tres" id="3_wj14k"]
+
+[node name="Unit" type="Node2D"]
+script = ExtResource("1_cfeyr")
+
+[node name="Element" parent="." instance=ExtResource("2_ar167")]
+
+[node name="UnitPlaceholder" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = ExtResource("3_wj14k")

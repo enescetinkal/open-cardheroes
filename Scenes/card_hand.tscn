@@ -7,13 +7,57 @@
 script = ExtResource("1_ldx16")
 metadata/shown = false
 
-[node name="DebugCards" type="Node2D" parent="."]
+[node name="CardContainer" type="VFlowContainer" parent="."]
+layout_direction = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = -47.5
+offset_right = 53.0
+offset_bottom = 47.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
 
-[node name="Card0" parent="DebugCards" instance=ExtResource("1_r7uip")]
-position = Vector2(18, -1)
+[node name="Card0" parent="CardContainer" instance=ExtResource("1_r7uip")]
+visible = false
+layout_mode = 2
 
-[node name="Card1" parent="DebugCards" instance=ExtResource("1_r7uip")]
-position = Vector2(0, 20)
+[node name="Card1" parent="CardContainer" instance=ExtResource("1_r7uip")]
+visible = false
+layout_mode = 2
 
-[node name="Card2" parent="DebugCards" instance=ExtResource("1_r7uip")]
-position = Vector2(-19, -1)
+[node name="Card2" parent="CardContainer" instance=ExtResource("1_r7uip")]
+visible = false
+layout_mode = 2
+
+[node name="Card3" parent="CardContainer" instance=ExtResource("1_r7uip")]
+visible = false
+layout_mode = 2
+
+[node name="Card4" parent="CardContainer" instance=ExtResource("1_r7uip")]
+visible = false
+layout_mode = 2
+
+[node name="Card5" parent="CardContainer" instance=ExtResource("1_r7uip")]
+visible = false
+layout_mode = 2
+
+[node name="Card6" parent="CardContainer" instance=ExtResource("1_r7uip")]
+visible = false
+layout_mode = 2
+
+[node name="Card7" parent="CardContainer" instance=ExtResource("1_r7uip")]
+visible = false
+layout_mode = 2
+
+[node name="Card8" parent="CardContainer" instance=ExtResource("1_r7uip")]
+visible = false
+layout_mode = 2
+
+[node name="Card9" parent="CardContainer" instance=ExtResource("1_r7uip")]
+visible = false
+layout_mode = 2

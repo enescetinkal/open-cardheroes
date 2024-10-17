@@ -18,15 +18,21 @@ ShowLaneDebugGraphic = true
 [node name="PlayingField" type="Node2D" parent="."]
 
 [node name="Backdrop" type="Sprite2D" parent="PlayingField"]
-position = Vector2(305, 571)
-scale = Vector2(0.75, 0.75)
+position = Vector2(322, 569)
+scale = Vector2(0.85, 0.85)
 texture = ExtResource("1_s2pgw")
 
 [node name="FieldSidePlayer" parent="PlayingField/Backdrop" instance=ExtResource("1_4cgbu")]
 z_index = 1
-position = Vector2(0, 393.333)
-scale = Vector2(6, 6)
+offset_left = 8.0
+offset_top = 390.275
+offset_right = 8.0
+offset_bottom = 390.275
+scale = Vector2(3.25, 3.25)
 
 [node name="FieldSideOpponent" parent="PlayingField/Backdrop" instance=ExtResource("2_dlak3")]
-position = Vector2(3.33337, -410)
-scale = Vector2(6, 6)
+offset_left = 9.4118
+offset_top = -438.667
+offset_right = 9.4118
+offset_bottom = -438.667
+scale = Vector2(3.25, 3.25)
