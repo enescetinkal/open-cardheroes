@@ -16,6 +16,7 @@ public record PlayingCard
 	public bool HasSecondaryAttackPhase { get; set; } = false;
 	public bool IsSecondaryUnit { get; set; } = false;
 	public string TexturePath { get; set; } = String.Empty;
+	public bool IsAbilityCard { get => AppliesToLane || AppliesToUnit || DrawsCards; }
 	///
 	/// Summary: For buff/action cards
 	///

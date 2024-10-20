@@ -14,8 +14,9 @@ public partial class FieldSidePlayer : FieldSide
 	private bool mouseWasCentered = false;
 	private CancellationTokenSource cancelTokenSrc = null;
 	private List<Unit> laneUnits = new List<Unit>();
-	private List<Unit> supportUnits = new List<Unit>();
+	private List<Unit> secondaryUnits = new List<Unit>();
 	private FieldLane[] lanes;
+	private Dictionary<Unit, Action> UnitHooks = new Dictionary<Unit, Action>();
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -29,7 +30,7 @@ public partial class FieldSidePlayer : FieldSide
 		Parallel.ForEach(lanes, lane =>
 		{
 			laneUnits.Add(lane.LaneUnit);
-			supportUnits.Add(lane.SupportUnit);
+			secondaryUnits.Add(lane.SecondaryUnit);
 		});
 		
 		if (cards.Length > 0)
@@ -41,6 +42,8 @@ public partial class FieldSidePlayer : FieldSide
 			}
 		}
 	}
+	
+	//TODO: set up turn advancement
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
@@ -98,16 +101,46 @@ public partial class FieldSidePlayer : FieldSide
 			card.SetGlobalPosition(originalCardPosition.Value);
 			mouseWasCentered = false;
 			
-			var laneUnitSlot = laneUnits.FirstOrDefault(u => originalCardPosition.Value.IsInCenteredArea(u.GetWorldRect()));
-			var supportUnitSlot = supportUnits.FirstOrDefault(u => originalCardPosition.Value.IsInCenteredArea(u.GetWorldRect()));
-			
-			if (!card.CardStats.IsSupportUnit && laneUnitSlot != null) ;//TODO: add unit
-			else if (card.CardStats.IsSupportUnit && supportUnitSlot != null) ;//TODO: add unit
-			//else if () TODO: check if is in lane and is lane action card
+			HandleUnitPlacementLogic(card);
 			
 			originalCardPosition = null;
-			
 		}
+	}
+	
+	private void HandleUnitPlacementLogic(CardElement card)
+	{
+		var laneUnitSlot = laneUnits.FirstOrDefault(u => card.GlobalPosition.IsInCenteredArea(u.GetWorldRect()));
+		var secondaryUnitSlot = secondaryUnits.FirstOrDefault(u => card.GlobalPosition.IsInCenteredArea(u.GetWorldRect()));
+		//var laneAbilitySlot = laneAbilitySlot.FirstOrDefault(a => card.GlobalPosition.IsInCenteredArea(a.GetWorldRect()));
+		var cardStats = card.CardStats;
+		
+		if (laneUnitSlot != null)
+		{
+			if (!cardStats.IsSecondaryUnit && !cardStats.IsAbilityCard) SetUpUnitSlot(cardStats, laneUnitSlot);
+			else ;//TODO: show an error
+		}
+		else if (secondaryUnitSlot != null)
+		{
+			if (cardStats.IsSecondaryUnit) SetUpUnitSlot(cardStats, secondaryUnitSlot);
+			else ;//TODO: show an error
+		}
+		//else if (cardStats.IsAbilityCard) TODO: apply the ability to lane
+	}
+	
+	private void SetUpUnitSlot(PlayingCard cardStats, Unit unitSlot)
+	{
+		unitSlot.UnitInfo = cardStats;
+		unitSlot.Sprite.SpriteFrames = cardStats.TexturePath;
+		UnitHooks.Add(unitSlot, () => HandleUnitAppearFinished(unitSlot));
+		unitSlot.Sprite.AnimationFinished += UnitHooks[unitSlot];
+		unitSlot.Sprite.Play("appear");
+	}
+	
+	public void HandleUnitAppearFinished(Unit unitSlot)
+	{
+		unitSlot.Sprite.AnimationFinished -= UnitHooks[unitSlot];
+		UnitHooks.Remove(unitSlot);
+		unitSlot.Sprite.Play("default");
 	}
 	
 	private void HandleCardMovement(float delta)
@@ -122,7 +155,7 @@ public partial class FieldSidePlayer : FieldSide
 			originalCardPosition = originalCardPosition ?? cardPosition;
 			cardMoveTimeIncrement += delta * 0.6f;
 			
-			//TODO: toggle highlight for target areas
+			//TODO: toggle highlight for possible target areas
 			
 			//Debug.WriteLine($"moving card: {cardPosition}, mouse pos: {mousePosition}, mouse off: {mouseOffset}");
 			if (((cardPosition.X - mouseOffset.X) > 10 || (cardPosition.Y - mouseOffset.Y) > 10) && !mouseWasCentered)

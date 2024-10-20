@@ -52,7 +52,7 @@ scale = Vector2(0.999999, 1)
 [node name="LaneUnit" parent="LaneRoot" instance=ExtResource("3_a256o")]
 position = Vector2(0, -10)
 
-[node name="SupportUnit" parent="LaneRoot" instance=ExtResource("3_a256o")]
+[node name="SecondaryUnit" parent="LaneRoot" instance=ExtResource("3_a256o")]
 position = Vector2(0, 10)
 
 [node name="LanePlaceholder" type="AnimatedSprite2D" parent="LaneRoot"]

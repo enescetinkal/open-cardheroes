@@ -10,7 +10,7 @@ public partial class FieldLane : Node2D
 	private Sprite2D border = null;
 	
 	public Unit LaneUnit { get; set; }
-	public Unit SupportUnit { get; set; }
+	public Unit SecondaryUnit { get; set; }
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -18,7 +18,7 @@ public partial class FieldLane : Node2D
 		//Debug.WriteLine("lane ready");
 		border = (Sprite2D)GetNode("LaneBorderFirst");
 		LaneUnit = this.FindChild<Unit>("LaneUnit", owned: false);
-		SupportUnit = this.FindChild<Unit>("SupportUnit", owned: false);
+		SecondaryUnit = this.FindChild<Unit>("SecondaryUnit", owned: false);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
