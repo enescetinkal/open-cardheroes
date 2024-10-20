@@ -14,7 +14,7 @@ public record PlayingCard
 	public ushort AttackValue { get; set; } = 1;
 	public bool IsInStasis { get; set; } = false;
 	public bool HasSecondaryAttackPhase { get; set; } = false;
-	public bool IsSupportUnit { get; set; } = false;
+	public bool IsSecondaryUnit { get; set; } = false;
 	public string TexturePath { get; set; } = String.Empty;
 	///
 	/// Summary: For buff/action cards
