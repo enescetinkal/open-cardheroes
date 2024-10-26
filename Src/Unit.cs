@@ -7,7 +7,7 @@ public partial class Unit : Element
 	public AnimatedSprite2D Placeholder { get; set; }
 	public CollisionShape2D CollisionArea { get; set; }
 	public AnimatedSprite2D Sprite { get; set; }
-	public delegate void OnDestroyedHandler();
+	public delegate void OnDestroyedHandler(Unit destroyedUnit);
 	public event OnDestroyedHandler OnDestroyed;
 	
 	// Called when the node enters the scene tree for the first time.
@@ -31,11 +31,44 @@ public partial class Unit : Element
 		{
 			if (healthAmount != null)
 			{
-				UnitInfo.MaxHealth += healthAmount;
-				UnitInfo.CurrentHealth += healthAmount;
+				if (healthAmount > 0)
+				{
+					UnitInfo.HealthMax += (ushort)healthAmount.Value;
+					UnitInfo.CurrentHealth += (ushort)healthAmount.Value;
+				}
+				else
+				{
+					short tmpMax = (short)UnitInfo.HealthMax;
+					short tmpHealth = (short)UnitInfo.CurrentHealth;
+					
+					tmpMax += healthAmount.Value;
+					tmpHealth += healthAmount.Value;
+					
+					if (tmpMax < 0) tmpMax = 0;
+					if (tmpHealth < 0) tmpHealth = 0;
+					
+					UnitInfo.HealthMax = (ushort)tmpMax;
+					UnitInfo.CurrentHealth = (ushort)tmpHealth;
+				}
 			}
 			
-			if (damageAmount != null) UnitInfo.AttackValue += damageAmount;
+			if (damageAmount != null)
+			{
+				if (damageAmount > 0)
+				{
+					UnitInfo.AttackValue += (ushort)damageAmount;
+				}
+				else
+				{
+					short tmpDmg = (short)UnitInfo.AttackValue;
+					
+					tmpDmg += damageAmount.Value;
+					
+					if (tmpDmg < 0) tmpDmg = 0;
+					
+					UnitInfo.AttackValue = (ushort)tmpDmg;
+				}
+			}
 			
 			//TODO: animate changes??
 		}

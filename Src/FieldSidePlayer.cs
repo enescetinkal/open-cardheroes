@@ -130,7 +130,7 @@ public partial class FieldSidePlayer : FieldSide
 	private void SetUpUnitSlot(PlayingCard cardStats, Unit unitSlot)
 	{
 		unitSlot.UnitInfo = cardStats;
-		unitSlot.Sprite.SpriteFrames = cardStats.TexturePath;
+		unitSlot.Sprite.SpriteFrames = GD.Load<SpriteFrames>(cardStats.TexturePath);
 		UnitHooks.Add(unitSlot, () => HandleUnitAppearFinished(unitSlot));
 		unitSlot.Sprite.AnimationFinished += UnitHooks[unitSlot];
 		unitSlot.Sprite.Play("appear");
