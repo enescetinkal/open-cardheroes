@@ -1,9 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://cp60lf6rto6lh"]
+[gd_scene load_steps=8 format=3 uid="uid://cp60lf6rto6lh"]
 
 [ext_resource type="Script" path="res://Src/FieldLane.cs" id="1_0uqpr"]
 [ext_resource type="Texture2D" uid="uid://cjrawf6c78iye" path="res://Resources/pixel.png" id="2_svmye"]
 [ext_resource type="PackedScene" uid="uid://cjav4ns662x4y" path="res://Scenes/unit.tscn" id="3_a256o"]
 [ext_resource type="SpriteFrames" uid="uid://xvswl3k0l8m4" path="res://Resources/lane.tres" id="4_jscm6"]
+[ext_resource type="Texture2D" uid="uid://14cdfkkr64qp" path="res://Resources/arena.png" id="5_sap4o"]
+
+[sub_resource type="Curve2D" id="Curve2D_xrh34"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -10, 0, 0, 0, 0, 0, 68)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_dp7ha"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -10, 0, 0, 0, 0, 0, 87)
+}
+point_count = 2
 
 [node name="FieldLane" type="Node2D"]
 script = ExtResource("1_0uqpr")
@@ -16,12 +29,12 @@ scale = Vector2(21, 1)
 texture = ExtResource("2_svmye")
 centered = false
 
-[node name="LaneBackgroundLeft" type="Sprite2D" parent="LaneBorderFirst"]
+[node name="LaneBorderLeft" type="Sprite2D" parent="LaneBorderFirst"]
 scale = Vector2(0.054, 42)
 texture = ExtResource("2_svmye")
 centered = false
 
-[node name="LaneBackgroundRight" type="Sprite2D" parent="LaneBorderFirst"]
+[node name="LaneBorderRight" type="Sprite2D" parent="LaneBorderFirst"]
 position = Vector2(1, 0)
 scale = Vector2(0.054, 42)
 texture = ExtResource("2_svmye")
@@ -58,3 +71,58 @@ position = Vector2(0, 10)
 [node name="LanePlaceholder" type="AnimatedSprite2D" parent="LaneRoot"]
 visible = false
 sprite_frames = ExtResource("4_jscm6")
+
+[node name="UnitPathToSecondary" type="Path2D" parent="LaneRoot"]
+curve = SubResource("Curve2D_xrh34")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="LaneRoot/UnitPathToSecondary"]
+position = Vector2(0, -10)
+rotation = 1.5708
+
+[node name="UnitPathToUnit" type="Path2D" parent="LaneRoot"]
+curve = SubResource("Curve2D_dp7ha")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="LaneRoot/UnitPathToUnit"]
+position = Vector2(0, -10)
+rotation = 1.5708
+
+[node name="Opposing placeholder" type="Sprite2D" parent="."]
+visible = false
+z_index = -3
+position = Vector2(21, 39)
+scale = Vector2(0.164286, 0.164286)
+texture = ExtResource("5_sap4o")
+
+[node name="LaneBorderFirst" type="Sprite2D" parent="Opposing placeholder"]
+position = Vector2(-61.0067, 371.304)
+rotation = 3.14159
+scale = Vector2(132.602, 6.31438)
+texture = ExtResource("2_svmye")
+centered = false
+
+[node name="LaneBackgroundLeft" type="Sprite2D" parent="Opposing placeholder/LaneBorderFirst"]
+scale = Vector2(0.054, 42)
+texture = ExtResource("2_svmye")
+centered = false
+
+[node name="LaneBackgroundRight" type="Sprite2D" parent="Opposing placeholder/LaneBorderFirst"]
+position = Vector2(1, 0)
+scale = Vector2(0.054, 42)
+texture = ExtResource("2_svmye")
+centered = false
+
+[node name="LaneBorderLastLeft" type="Sprite2D" parent="Opposing placeholder/LaneBorderFirst"]
+position = Vector2(0.0328571, 41.25)
+rotation = 1.52321
+scale = Vector2(4.95536, 0.707908)
+skew = -1.47563
+texture = ExtResource("2_svmye")
+centered = false
+
+[node name="LaneBorderLastRight" type="Sprite2D" parent="Opposing placeholder/LaneBorderFirst"]
+position = Vector2(1.05476, 42.03)
+rotation = 1.61838
+scale = Vector2(4.95536, 0.707908)
+skew = 1.47563
+texture = ExtResource("2_svmye")
+centered = false
