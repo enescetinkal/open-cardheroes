@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cchrph08hkv0b"]
+
+[ext_resource type="Script" path="res://Src/lane.gd" id="1_mfxkv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7n5s7"]
+size = Vector2(203, 679)
+
+[node name="Lane" type="Area2D" groups=["Lanes"]]
+script = ExtResource("1_mfxkv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(101.5, 340.5)
+shape = SubResource("RectangleShape2D_7n5s7")
+
+[node name="PlaceholderRect" type="ColorRect" parent="."]
+z_index = 1
+offset_right = 203.0
+offset_bottom = 680.0
+mouse_filter = 2
+color = Color(0.258824, 0.713726, 0, 1)

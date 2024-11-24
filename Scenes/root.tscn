@@ -1,38 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://biwmxl5fycaxl"]
+[gd_scene load_steps=3 format=3 uid="uid://b8suhk03q7yia"]
 
-[ext_resource type="PackedScene" uid="uid://bb0dlcsxqde1e" path="res://Scenes/field_side_player.tscn" id="1_4cgbu"]
-[ext_resource type="Script" path="res://Src/Root.cs" id="1_i21st"]
-[ext_resource type="Texture2D" uid="uid://14cdfkkr64qp" path="res://Resources/arena.png" id="1_s2pgw"]
-[ext_resource type="PackedScene" uid="uid://ta07ccryvchr" path="res://Scenes/field_side_opponent.tscn" id="2_dlak3"]
+[ext_resource type="PackedScene" uid="uid://d2x66ekc72dj5" path="res://Scenes/card.tscn" id="1_ruhw3"]
+[ext_resource type="PackedScene" uid="uid://cchrph08hkv0b" path="res://Scenes/lane.tscn" id="2_exlw2"]
 
 [node name="Root" type="Node"]
-script = ExtResource("1_i21st")
-ShowLaneDebugGraphic = true
 
-[node name="Menu" type="Node2D" parent="."]
+[node name="Cards" type="Node" parent="."]
 
-[node name="MenuBackdrop" type="Sprite2D" parent="Menu"]
+[node name="Card" parent="Cards" instance=ExtResource("1_ruhw3")]
+position = Vector2(12, 529)
 
-[node name="MenuBackgroundAudio" type="AudioStreamPlayer" parent="Menu"]
+[node name="Lanes" type="Node" parent="."]
 
-[node name="PlayingField" type="Node2D" parent="."]
+[node name="Lane1" parent="Lanes" instance=ExtResource("2_exlw2")]
+position = Vector2(910, 175)
+isHeights = true
 
-[node name="Backdrop" type="Sprite2D" parent="PlayingField"]
-position = Vector2(322, 569)
-scale = Vector2(0.85, 0.85)
-texture = ExtResource("1_s2pgw")
+[node name="Lane2" parent="Lanes" instance=ExtResource("2_exlw2")]
+position = Vector2(1112, 173)
 
-[node name="FieldSidePlayer" parent="PlayingField/Backdrop" instance=ExtResource("1_4cgbu")]
-z_index = 1
-offset_left = 8.0
-offset_top = 390.275
-offset_right = 8.0
-offset_bottom = 390.275
-scale = Vector2(3.25, 3.25)
+[node name="Lane3" parent="Lanes" instance=ExtResource("2_exlw2")]
+position = Vector2(1313, 171)
 
-[node name="FieldSideOpponent" parent="PlayingField/Backdrop" instance=ExtResource("2_dlak3")]
-offset_left = 9.4118
-offset_top = -438.667
-offset_right = 9.4118
-offset_bottom = -438.667
-scale = Vector2(3.25, 3.25)
+[node name="Lane4" parent="Lanes" instance=ExtResource("2_exlw2")]
+position = Vector2(1511, 171)
+
+[node name="Lane5" parent="Lanes" instance=ExtResource("2_exlw2")]
+position = Vector2(1713, 172)
+isWater = true
