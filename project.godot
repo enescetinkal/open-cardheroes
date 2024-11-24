@@ -13,6 +13,8 @@ config_version=5
 config/name="Open-CardHeroes"
 run/main_scene="res://Scenes/root.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
+boot_splash/image="res://o-ch_gitLogo.png"
+boot_splash/fullsize=false
 config/icon="res://icon.svg"
 
 [display]
