@@ -3,13 +3,14 @@
 [ext_resource type="Script" path="res://Src/lane.gd" id="1_mfxkv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7n5s7"]
-size = Vector2(203, 679)
+size = Vector2(144, 547)
 
 [node name="Lane" type="Area2D" groups=["Lanes"]]
+collision_layer = 8
 script = ExtResource("1_mfxkv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(101.5, 340.5)
+position = Vector2(103, 337.5)
 shape = SubResource("RectangleShape2D_7n5s7")
 
 [node name="PlaceholderRect" type="ColorRect" parent="."]

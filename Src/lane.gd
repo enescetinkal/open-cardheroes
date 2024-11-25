@@ -5,7 +5,7 @@ extends Area2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# Changes the lane color according to the type of lane selected.
+	# Changes the lane color according to the type of lane type selected.
 	if isWater == true :
 		$PlaceholderRect.color = Color(0,0,0.75,1)
 	if isHeights == true :
