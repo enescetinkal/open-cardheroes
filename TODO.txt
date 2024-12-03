@@ -1,0 +1,28 @@
+Code:
+* (optional) get a secondary coder
+* Make a troop
+* Add factions
+* Make 2 troops fight
+* Code a custom card system (by using a text file with a dictionary containing everything about the card)
+* Make a trick
+* Add abilities that will be written on the cardfile
+* Make deckbuilding and a hero
+* (can do later) Make a custom hero system
+* Make blocking and super powers
+* Make envorimets
+* Make arenas
+Gameplay:
+* Put all of the cards in a spreadsheet
+* Make the superpowers
+* Make some envoriments
+* Make some arenas
+Art:
+* Finish up hero concepts
+* Make placeholder heroes and troops
+* Make the first arena art
+* Make card icons
+* Make the first few cards
+Misc:
+* Add the artist to the copyright
+* Change large logo to something better
+* Clean up file structure
