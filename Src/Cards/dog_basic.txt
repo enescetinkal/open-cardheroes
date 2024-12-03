@@ -3,12 +3,12 @@ name = "Street Dog"
 cardType = "troop"
 factionAnimal = true
 stats{
-    class = "all.a"
-    attack = 2
-    health = 2
-    tribes = ["Dog", "Downtown"]   
+	class = "all.a"
+	attack = 2
+	health = 2
+	tribes = ["Dog", "Downtown"]   
 }
 text{
-    description = "-"
-    flavor = "A common but a good boy."
+	description = "-"
+	flavor = "A common but a good boy."
 }
