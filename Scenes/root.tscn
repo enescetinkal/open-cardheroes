@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8suhk03q7yia"]
+[gd_scene load_steps=4 format=3 uid="uid://b8suhk03q7yia"]
 
 [ext_resource type="PackedScene" uid="uid://d2x66ekc72dj5" path="res://Scenes/card.tscn" id="1_ruhw3"]
 [ext_resource type="PackedScene" uid="uid://cchrph08hkv0b" path="res://Scenes/lane.tscn" id="2_exlw2"]
+[ext_resource type="PackedScene" uid="uid://edu03n5l0ny8" path="res://Scenes/troop.tscn" id="3_eldcl"]
 
 [node name="Root" type="Node"]
 
@@ -12,19 +13,10 @@ position = Vector2(12, 529)
 
 [node name="Lanes" type="Node" parent="."]
 
-[node name="Lane1Heights" parent="Lanes" instance=ExtResource("2_exlw2")]
-position = Vector2(910, 175)
-isHeights = true
+[node name="Lane1" parent="Lanes" instance=ExtResource("2_exlw2")]
+position = Vector2(1207, 158)
 
-[node name="Lane2" parent="Lanes" instance=ExtResource("2_exlw2")]
-position = Vector2(1112, 173)
+[node name="Troops" type="Node" parent="."]
 
-[node name="Lane3" parent="Lanes" instance=ExtResource("2_exlw2")]
-position = Vector2(1313, 171)
-
-[node name="Lane4" parent="Lanes" instance=ExtResource("2_exlw2")]
-position = Vector2(1511, 171)
-
-[node name="Lane5Water" parent="Lanes" instance=ExtResource("2_exlw2")]
-position = Vector2(1713, 172)
-isWater = true
+[node name="Troop" parent="Troops" instance=ExtResource("3_eldcl")]
+position = Vector2(1231, 535)

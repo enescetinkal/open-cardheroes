@@ -2,6 +2,7 @@ extends Area2D
 var mouseInCollision = false
 var cardInLane = false
 var cardPlayedAtLane = false
+var troopPlayed = Globals.troopPlayed
 
 func _ready():
 	pass
@@ -16,6 +17,7 @@ func _process(delta: float) -> void:
 	
 	if cardInLane == true and Input.is_action_just_released("mouse_leftB"):
 		print("Card is played at a lane.")
+		troopPlayed = true
 		queue_free()
 
 # Changes a variale if the mouse is in or out of the PlaceHolderRect.
