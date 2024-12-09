@@ -1,13 +1,23 @@
 extends Area2D
+
+@export var card = "res://Src/Cards/dog_basic.json"
+
+signal card_parsed
+var parsed_card: Dictionary
 var mouseInCollision = false
 var cardInLane = false
 var cardPlayedAtLane = false
 var troopPlayed = Globals.troopPlayed
 
 func _ready():
-	pass
-	
-
+	if card:
+		var file = FileAccess.open(card, FileAccess.READ)
+		var json_text = file.get_as_text()
+		file.close()
+		var json = JSON.new()
+		var result = json.parse(json_text)
+		parsed_card = json.get_data() 
+		card_parsed.emit(parsed_card)
 
 func _process(delta: float) -> void:
 	#Checks if the mouse is in the card and if the left mouse is clicked.

@@ -33,6 +33,5 @@ script = ExtResource("2_pgeiv")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
-[connection signal="card_parsed" from="." to="Label" method="_on_card_card_parsed"]
 [connection signal="mouse_entered" from="PlaceholderRect" to="." method="_on_placeholder_rect_mouse_entered"]
 [connection signal="mouse_exited" from="PlaceholderRect" to="." method="_on_placeholder_rect_mouse_exited"]
