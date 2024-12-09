@@ -1,0 +1,17 @@
+{
+  "id": "mountian_scaler",
+  "name": "Mountian Scaler",
+  "cardType": "troop",
+  "factionAnimal": false,
+  "stats": {
+    "class": "electric.a",
+    "attack": 2,
+    "health": 2,
+    "cost": 2,
+    "tribes": ["Exploring", "Robot"]
+  },
+  "text": {
+    "description": "Sharp-Shoot. When played on heights: This get +1/+1.",
+    "flavor": "-"
+  }
+}

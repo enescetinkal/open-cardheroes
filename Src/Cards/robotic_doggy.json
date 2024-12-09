@@ -1,0 +1,17 @@
+{
+  "id": "robotic_doggy",
+  "name": "Robotic Doggy",
+  "cardType": "troop",
+  "factionAnimal": true,
+  "stats": {
+    "class": "wild.a",
+    "attack": 2,
+    "health": 2,
+    "cost": 1,
+    "tribes": ["Animal-like", "Robot"]
+  },
+  "text": {
+    "description": "Hunt",
+    "flavor": "A robot and a dog is hard to keep. But this? This is a another level of hard."
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "id": "box_freezing_fox",
+  "name": "Box Freezing Fox",
+  "cardType": "troop",
+  "factionAnimal": true,
+  "stats": {
+    "class": "think_and_live.a",
+    "attack": 3,
+    "health": 3,
+    "cost": 3,
+    "tribes": ["Animal", "Fox", "Mice", "Winter"]
+  },
+  "text": {
+    "description": "When played: Freeze all boxes.",
+    "flavor": "-"
+  }
+}

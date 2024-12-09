@@ -1,0 +1,17 @@
+{
+  "id": "beefy_buffalo",
+  "name": "Beefy Buffalo",
+  "cardType": "troop",
+  "factionAnimal": true,
+  "stats": {
+    "class": "grow_and_blow.a",
+    "attack": 2,
+    "health": 3,
+    "cost": 3,
+    "tribes": ["Animal", "Livestock"]
+  },
+  "text": {
+    "description": "This gets +1/+1 when you play an animal.",
+    "flavor": "He is beefy because of friendship."
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "id": "winter_hive",
+  "name": "Winter Hive",
+  "cardType": "troop",
+  "factionAnimal": true,
+  "stats": {
+    "class": "think_and_live.a",
+    "attack": 4,
+    "health": 1,
+    "cost": 4,
+    "tribes": ["Animal", "Bug", "Winter"]
+  },
+  "text": {
+    "description": "When played: Freeze robots next door.",
+    "flavor": "-"
+  }
+}

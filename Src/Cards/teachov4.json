@@ -1,0 +1,17 @@
+{
+  "id": "teachov4",
+  "name": "TeachoV4",
+  "cardType": "troop",
+  "factionAnimal": false,
+  "stats": {
+    "class": "protector.a",
+    "attack": 1,
+    "health": 1,
+    "cost": 1,
+    "tribes": ["A.I", "Robot", "Worktime"]
+  },
+  "text": {
+    "description": "Robot tricks cost 1 less.",
+    "flavor": "-"
+  }
+}

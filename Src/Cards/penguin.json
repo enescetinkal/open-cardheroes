@@ -1,0 +1,17 @@
+{
+  "id": "penguin",
+  "name": "Penguin",
+  "cardType": "troop",
+  "factionAnimal": true,
+  "stats": {
+    "class": "think_and_live.a",
+    "attack": 1,
+    "health": 2,
+    "cost": 1,
+    "tribes": ["Animal", "Bird", "Winter"]
+  },
+  "text": {
+    "description": "When a robot or a box gets frozen: this gets +2/+2.",
+    "flavor": "-"
+  }
+}

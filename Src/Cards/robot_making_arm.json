@@ -1,0 +1,17 @@
+{
+  "id": "robot_making_arm",
+  "name": "Robot Making Arm",
+  "cardType": "troop",
+  "factionAnimal": false,
+  "stats": {
+    "class": "hard_hitter.a",
+    "attack": 3,
+    "health": 1,
+    "cost": 3,
+    "tribes": ["Robot", "Toyish", "Worktime"]
+  },
+  "text": {
+    "description": "When Played: Make a Basic Bot.",
+    "flavor": "He makes the robots for kids. He shouldn’t be here too."
+  }
+}

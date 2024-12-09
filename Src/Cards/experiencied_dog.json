@@ -1,0 +1,17 @@
+{
+  "id": "experienced_dog",
+  "name": "Experienced Dog",
+  "cardType": "troop",
+  "factionAnimal": true,
+  "stats": {
+    "class": "muscle_and_multiply.a",
+    "attack": 4,
+    "health": 2,
+    "cost": 3,
+    "tribes": ["Animal", "Dog", "Rouge"]
+  },
+  "text": {
+    "description": "-",
+    "flavor": "He is experiened with destroying metal. Maybe too expeienced."
+  }
+}

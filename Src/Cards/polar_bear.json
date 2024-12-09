@@ -1,0 +1,17 @@
+{
+  "id": "polar_bear",
+  "name": "Polar Bear",
+  "cardType": "troop",
+  "factionAnimal": true,
+  "stats": {
+    "class": "think_and_live.a",
+    "attack": 2,
+    "health": 4,
+    "cost": 4,
+    "tribes": ["Animal", "Bear", "Winter"]
+  },
+  "text": {
+    "description": "When a robot or a box gets frozen: destroy it.",
+    "flavor": "-"
+  }
+}

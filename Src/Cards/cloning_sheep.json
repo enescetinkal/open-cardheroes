@@ -1,0 +1,17 @@
+{
+  "id": "cloning_sheep",
+  "name": "Cloning Sheep",
+  "cardType": "troop",
+  "factionAnimal": true,
+  "stats": {
+    "class": "muscle_and_multiply.a",
+    "attack": 3,
+    "health": 3,
+    "cost": 4,
+    "tribes": ["Animal", "Experiment", "Livestock"]
+  },
+  "text": {
+    "description": "Transform all animals to Cloning Sheeps.",
+    "flavor": "-"
+  }
+}

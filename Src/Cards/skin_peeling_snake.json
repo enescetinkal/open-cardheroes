@@ -1,0 +1,17 @@
+{
+  "id": "skin_peeling_snake",
+  "name": "Skin Peeling Snake",
+  "cardType": "troop",
+  "factionAnimal": true,
+  "stats": {
+    "class": "shell_and_sway.a",
+    "attack": 2,
+    "health": 4,
+    "cost": 4,
+    "tribes": ["Animal", "Snake"]
+  },
+  "text": {
+    "description": "Team-Up. Start of turn: Move this and leave a Snake Skin.",
+    "flavor": "First Custom Card that is not a rebalanced or directly ported heroes card."
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "id": "ice_cave",
+  "name": "Ice Cave",
+  "cardType": "troop",
+  "factionAnimal": true,
+  "stats": {
+    "class": "think_and_live.a",
+    "attack": 1,
+    "health": 3,
+    "cost": 2,
+    "tribes": ["Animal", "Shelter", "Winter"]
+  },
+  "text": {
+    "description": "Fusion: Freeze a robot. It gets -2 attack.",
+    "flavor": "-"
+  }
+}

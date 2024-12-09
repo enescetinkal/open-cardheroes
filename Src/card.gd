@@ -9,6 +9,9 @@ var cardInLane = false
 var cardPlayedAtLane = false
 var troopPlayed = Globals.troopPlayed
 
+var health
+var attack
+
 func _ready():
 	if card:
 		var file = FileAccess.open(card, FileAccess.READ)
@@ -18,7 +21,7 @@ func _ready():
 		var result = json.parse(json_text)
 		parsed_card = json.get_data() 
 		card_parsed.emit(parsed_card)
-
+	
 func _process(delta: float) -> void:
 	#Checks if the mouse is in the card and if the left mouse is clicked.
 	if Input.is_action_pressed("mouse_leftB") and mouseInCollision == true :

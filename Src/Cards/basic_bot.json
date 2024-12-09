@@ -1,0 +1,17 @@
+{
+  "id": "basic_bot",
+  "name": "Basic Bot",
+  "cardType": "troop",
+  "factionAnimal": false,
+  "stats": {
+    "class": "all.a",
+    "attack": 2,
+    "health": 2,
+    "cost": 1,
+    "tribes": ["Robot", "Toyish"]
+  },
+  "text": {
+    "description": "-",
+    "flavor": "A simple robot for kids. Don’t ask why he is in the battlefield."
+  }
+}

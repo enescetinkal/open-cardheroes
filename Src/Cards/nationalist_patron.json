@@ -1,0 +1,17 @@
+{
+  "id": "nationalist_patron",
+  "name": "Nationalist Patron",
+  "cardType": "troop",
+  "factionAnimal": false,
+  "stats": {
+    "class": "protector.a",
+    "attack": 1,
+    "health": 3,
+    "cost": 2,
+    "tribes": ["Robot", "Worktime"]
+  },
+  "text": {
+    "description": "Robot Units cost 1 less.",
+    "flavor": "He is a proud nationalist. It gives him free electricity."
+  }
+}

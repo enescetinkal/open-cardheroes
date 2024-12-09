@@ -1,0 +1,17 @@
+{
+  "id": "show_fan",
+  "name": "Show Fan",
+  "cardType": "troop",
+  "factionAnimal": false,
+  "stats": {
+    "class": "electric.a",
+    "attack": 1,
+    "health": 2,
+    "cost": 1,
+    "tribes": ["Funtime", "Robot"]
+  },
+  "text": {
+    "description": "When you play a trick: this gets +1/+1.",
+    "flavor": "He is in just for the show."
+  }
+}

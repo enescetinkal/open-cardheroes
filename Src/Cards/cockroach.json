@@ -1,0 +1,17 @@
+{
+  "id": "cockroach",
+  "name": "Cockroach",
+  "cardType": "troop",
+  "factionAnimal": true,
+  "stats": {
+    "class": "muscle_and_multiply.a",
+    "attack": 1,
+    "health": 1,
+    "cost": 0,
+    "tribes": ["Animal", "Bug"]
+  },
+  "text": {
+    "description": "Team-Up",
+    "flavor": "Its small,annoying & the best card in the game."
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "id": "sword_rookie",
+  "name": "Sword Rookie",
+  "cardType": "troop",
+  "factionAnimal": false,
+  "stats": {
+    "class": "hard_hitter.a",
+    "attack": 4,
+    "health": 2,
+    "cost": 3,
+    "tribes": ["Historic", "Robot", "Wartime"]
+  },
+  "text": {
+    "description": "-",
+    "flavor": "He is a stickman."
+  }
+}

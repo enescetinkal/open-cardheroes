@@ -1,0 +1,17 @@
+{
+  "id": "killer_tank",
+  "name": "Killer Tank",
+  "cardType": "troop",
+  "factionAnimal": false,
+  "stats": {
+    "class": "wild.a",
+    "attack": 5,
+    "health": 7,
+    "cost": 5,
+    "tribes": ["Heavy-Duty", "Robot", "Wartime"]
+  },
+  "text": {
+    "description": "All heavy duty robots have murder combo.",
+    "flavor": "-"
+  }
+}

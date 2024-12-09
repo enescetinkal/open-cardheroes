@@ -1,0 +1,17 @@
+{
+  "id": "birthday_anahilator_5000",
+  "name": "Birthday-Anahilator 5000",
+  "cardType": "troop",
+  "factionAnimal": false,
+  "stats": {
+    "class": "sinister.a",
+    "attack": 5,
+    "health": 6,
+    "cost": 5,
+    "tribes": ["Funtime", "Heavy-duty", "Robot"]
+  },
+  "text": {
+    "description": "In Box. When Opened: Move this robot.",
+    "flavor": "-"
+  }
+}

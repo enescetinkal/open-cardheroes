@@ -1,0 +1,17 @@
+{
+  "id": "rng_egg",
+  "name": "RNG Egg",
+  "cardType": "troop",
+  "factionAnimal": true,
+  "stats": {
+    "class": "shell_and_sway.a",
+    "attack": 0,
+    "health": 2,
+    "cost": 2,
+    "tribes": ["Animal", "Baby", "Bird"]
+  },
+  "text": {
+    "description": "Start of turn: turn this into an animal that costs between 2 and 6.",
+    "flavor": "Whats in the egg? Its a cockroach..."
+  }
+}
