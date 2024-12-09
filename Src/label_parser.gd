@@ -14,3 +14,5 @@ func card_parsed(info):
 
 func _on_card_card_parsed(info) -> void:
 	text = str(info["stats"]["cost"]) + " cost " + str(info["stats"]["attack"]) + "/" + str(info["stats"]["health"])
+	for i in info["stats"]["tribes"]:
+		add_to_group(i)
