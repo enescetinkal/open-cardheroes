@@ -2,7 +2,7 @@
   "id": "robotic_doggy",
   "name": "Robotic Doggy",
   "cardType": "troop",
-  "factionAnimal": true,
+  "factionRobot": true,
   "stats": {
     "class": "wild.a",
     "attack": 2,
