@@ -4,14 +4,14 @@
   "cardType": "troop",
   "factionRobot":  true,
   "stats": {
-    "class": "sinister.a",
-    "attack": 1,
-    "health": 4,
-    "cost": 2,
-    "tribes": ["Advert", "Robot"]
+	"class": "sinister.a",
+	"attack": 1,
+	"health": 4,
+	"cost": 2,
+	"tribes": ["Advert", "Robot"]
   },
   "text": {
-    "description": "When this hurts the animal hero: Conjure a Classic card. It costs 1 less.",
-    "flavor": "Buy our cards now! They cost one less compared to other brands."
+	"description": "When this hurts the animal hero: Conjure a Classic card. It costs 1 less.",
+	"flavor": "Buy our cards now! They cost one less compared to other brands."
   }
 }
