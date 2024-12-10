@@ -2,7 +2,7 @@
   "id": "teachov4",
   "name": "TeachoV4",
   "cardType": "troop",
-  "factionAnimal": false,
+  "factionRobot":  true,
   "stats": {
     "class": "protector.a",
     "attack": 1,

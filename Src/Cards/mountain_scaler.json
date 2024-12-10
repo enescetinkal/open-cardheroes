@@ -2,7 +2,7 @@
   "id": "mountian_scaler",
   "name": "Mountian Scaler",
   "cardType": "troop",
-  "factionAnimal": false,
+  "factionRobot":  true,
   "stats": {
     "class": "electric.a",
     "attack": 2,

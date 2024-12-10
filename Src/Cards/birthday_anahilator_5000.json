@@ -2,7 +2,7 @@
   "id": "birthday_anahilator_5000",
   "name": "Birthday-Anahilator 5000",
   "cardType": "troop",
-  "factionAnimal": false,
+  "factionRobot":  true,
   "stats": {
 	"class": "sinister.r",
 	"attack": 5,

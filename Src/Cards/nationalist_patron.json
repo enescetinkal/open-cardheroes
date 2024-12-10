@@ -2,7 +2,7 @@
   "id": "nationalist_patron",
   "name": "Nationalist Patron",
   "cardType": "troop",
-  "factionAnimal": false,
+  "factionRobot":  true,
   "stats": {
     "class": "protector.a",
     "attack": 1,

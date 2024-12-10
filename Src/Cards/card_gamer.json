@@ -2,7 +2,7 @@
   "id": "card_gamer",
   "name": "Card Gamer",
   "cardType": "troop",
-  "factionAnimal": false,
+  "factionRobot":  true,
   "stats": {
 	"class": "electric.r",
 	"attack": 2,

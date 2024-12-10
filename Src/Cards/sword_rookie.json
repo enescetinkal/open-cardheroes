@@ -2,7 +2,7 @@
   "id": "sword_rookie",
   "name": "Sword Rookie",
   "cardType": "troop",
-  "factionAnimal": false,
+  "factionRobot":  true,
   "stats": {
     "class": "hard_hitter.a",
     "attack": 4,

@@ -2,7 +2,7 @@
   "id": "show_fan",
   "name": "Show Fan",
   "cardType": "troop",
-  "factionAnimal": false,
+  "factionRobot":  true,
   "stats": {
     "class": "electric.a",
     "attack": 1,

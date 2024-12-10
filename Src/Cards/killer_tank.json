@@ -2,7 +2,7 @@
   "id": "killer_tank",
   "name": "Killer Tank",
   "cardType": "troop",
-  "factionAnimal": false,
+  "factionRobot":  true,
   "stats": {
     "class": "wild.a",
     "attack": 5,

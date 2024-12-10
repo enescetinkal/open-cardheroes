@@ -2,7 +2,7 @@
   "id": "basic_bot",
   "name": "Basic Bot",
   "cardType": "troop",
-  "factionAnimal": false,
+  "factionRobot":  true,
   "stats": {
 	"class": "all.r",
 	"attack": 2,

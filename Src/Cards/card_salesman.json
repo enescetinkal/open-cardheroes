@@ -2,7 +2,7 @@
   "id": "card_salesman",
   "name": "Card Salesman",
   "cardType": "troop",
-  "factionAnimal": false,
+  "factionRobot":  true,
   "stats": {
     "class": "sinister.a",
     "attack": 1,

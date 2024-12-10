@@ -2,7 +2,7 @@
   "id": "robot_making_arm",
   "name": "Robot Making Arm",
   "cardType": "troop",
-  "factionAnimal": false,
+  "factionRobot":  true,
   "stats": {
     "class": "hard_hitter.a",
     "attack": 3,
