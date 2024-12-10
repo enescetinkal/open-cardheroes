@@ -4,14 +4,14 @@
   "cardType": "troop",
   "factionAnimal": false,
   "stats": {
-    "class": "electric.a",
-    "attack": 2,
-    "health": 2,
-    "cost": 2,
-    "tribes": ["Funtime", "Robot"]
+	"class": "electric.r",
+	"attack": 2,
+	"health": 2,
+	"cost": 2,
+	"tribes": ["Funtime", "Robot"]
   },
   "text": {
-    "description": "When Played: Draw a card.",
-    "flavor": "He knows all the cards of magic."
+	"description": "When Played: Draw a card.",
+	"flavor": "He knows all the cards of magic."
   }
 }
