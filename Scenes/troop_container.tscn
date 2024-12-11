@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://mm4b4uivb2u0"]
+
+[ext_resource type="Script" path="res://Src/troop_container.gd" id="1_87hmo"]
+[ext_resource type="PackedScene" uid="uid://edu03n5l0ny8" path="res://Scenes/troop.tscn" id="1_ayory"]
+
+[node name="TroopContainer" type="Node2D"]
+script = ExtResource("1_87hmo")
+
+[node name="Troop" parent="." instance=ExtResource("1_ayory")]

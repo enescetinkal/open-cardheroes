@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d2x66ekc72dj5" path="res://Scenes/card.tscn" id="1_ruhw3"]
 [ext_resource type="PackedScene" uid="uid://cchrph08hkv0b" path="res://Scenes/lane.tscn" id="2_exlw2"]
-[ext_resource type="PackedScene" uid="uid://edu03n5l0ny8" path="res://Scenes/troop.tscn" id="3_eldcl"]
+[ext_resource type="PackedScene" uid="uid://mm4b4uivb2u0" path="res://Scenes/troop_container.tscn" id="3_koq17"]
 
 [node name="Root" type="Node"]
 
@@ -18,5 +18,5 @@ position = Vector2(1207, 158)
 
 [node name="Troops" type="Node" parent="."]
 
-[node name="Troop" parent="Troops" instance=ExtResource("3_eldcl")]
-position = Vector2(1231, 535)
+[node name="TroopContainer" parent="Troops" instance=ExtResource("3_koq17")]
+position = Vector2(1234, 526)
