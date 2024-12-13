@@ -14,9 +14,9 @@ position = Vector2(12, 529)
 [node name="Lanes" type="Node" parent="."]
 
 [node name="Lane1" parent="Lanes" instance=ExtResource("2_exlw2")]
-position = Vector2(1207, 158)
+position = Vector2(1209, 31)
 
 [node name="Troops" type="Node" parent="."]
 
 [node name="TroopContainer" parent="Troops" instance=ExtResource("3_koq17")]
-position = Vector2(1234, 526)
+position = Vector2(1236, 691)

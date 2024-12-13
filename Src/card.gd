@@ -29,8 +29,8 @@ func _process(delta: float) -> void:
 		print("Card is now being dragged by mouse.")
 	
 	if cardInLane == true and Input.is_action_just_released("mouse_leftB"):
+		troopPlayed["1stCard"] = true
 		print("Card is played at a lane.")
-		troopPlayed = true
 		queue_free()
 
 # Changes a variale if the mouse is in or out of the PlaceHolderRect.

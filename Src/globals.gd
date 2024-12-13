@@ -1,3 +1,3 @@
 extends Node
 
-var troopPlayed = false
+var troopPlayed = {"1stCard": false}

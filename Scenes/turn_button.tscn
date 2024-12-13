@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://bedidv3nkybos"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kco2x"]
+radius = 105.171
+
+[node name="TurnButton" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_kco2x")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.234755, 0.639467, 0.673131, 1)
+polygon = PackedVector2Array(-1, -105, -30, -102, -54, -91, -74, -75, -91, -54, -103, -26, -105, 2, -101, 28, -92, 49, -79, 68, -58, 87, -25, 102, 1, 104, 29, 101, 55, 89, 78, 72, 92, 52, 101, 25, 105, 0, 102, -27, 94, -53, 77, -76, 52, -92, 28, -103)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -69.0
+offset_top = -49.0
+offset_right = 70.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 64
+text = "Pass"

@@ -6,10 +6,10 @@ var troopPlayed = Globals.troopPlayed
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	hide()
+	remove_child(troop)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if troopPlayed == true: 
-		show()
+	if troopPlayed == {"1stCard": true}: 
+		add_child(troop)
